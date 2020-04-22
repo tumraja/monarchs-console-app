@@ -1,7 +1,7 @@
 The King C# Console App
 -----------------------
 
-A simple c# console app, calls restAPI endpoint to get collection of king and display statics
+A simple c# console app, calls restAPI endpoint to get collection of kings and display statics
 
 ----------------------
 Run the app
