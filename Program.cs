@@ -101,15 +101,15 @@ namespace monarchs_console_app
         private static async Task ProcessMonarchs()
         {
             var streamTask = client.GetStreamAsync("https://gist.githubusercontent.com/christianpanton/10d65ccef9f29de3acd49d97ed423736/raw/b09563bc0c4b318132c7a738e679d4f984ef0048/kings");
-            var monarchsCollection = await JsonSerializer.DeserializeAsync<List<Monarch>>(await streamTask);
+            var monarchs = await JsonSerializer.DeserializeAsync<List<Monarch>>(await streamTask);
 
-            foreach (var monarch in monarchsCollection)
+            foreach (var monarch in monarchs)
             {
                 monarch.period = await CalculateNumberOfYears(monarch);
             }
             
-            MonarchCollection collection = new  MonarchCollection(monarchsCollection);
-            Console.WriteLine($"How many monarchs are there in the list?: {monarchsCollection.Count}");
+            MonarchCollection collection = new  MonarchCollection(monarchs);
+            Console.WriteLine($"How many monarchs are there in the list?: {collection.total}");
             Console.WriteLine($"Which monarch ruled the longest (and for how long)?: {collection.longestRuledMonarch.name}, {(collection.longestRuledMonarch.period)} years");
             Console.WriteLine($"Which house ruled the longest (and for how long)?: {collection.longestRuledMonarch.house}, {(collection.longestRuledMonarch.period)} years");
             Console.WriteLine($"What was the most common first name?: {collection.mostAppearedName}");
