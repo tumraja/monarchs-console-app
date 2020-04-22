@@ -1,0 +1,12 @@
+/Users/tumsimekondo/Desktop/projects/dotnet/monarchs-console-app/bin/Debug/netcoreapp3.1/monarchs-console-app.deps.json
+/Users/tumsimekondo/Desktop/projects/dotnet/monarchs-console-app/bin/Debug/netcoreapp3.1/monarchs-console-app.runtimeconfig.json
+/Users/tumsimekondo/Desktop/projects/dotnet/monarchs-console-app/bin/Debug/netcoreapp3.1/monarchs-console-app.runtimeconfig.dev.json
+/Users/tumsimekondo/Desktop/projects/dotnet/monarchs-console-app/bin/Debug/netcoreapp3.1/monarchs-console-app.dll
+/Users/tumsimekondo/Desktop/projects/dotnet/monarchs-console-app/bin/Debug/netcoreapp3.1/monarchs-console-app.pdb
+/Users/tumsimekondo/Desktop/projects/dotnet/monarchs-console-app/obj/Debug/netcoreapp3.1/monarchs-console-app.csprojAssemblyReference.cache
+/Users/tumsimekondo/Desktop/projects/dotnet/monarchs-console-app/obj/Debug/netcoreapp3.1/monarchs-console-app.csproj.CoreCompileInputs.cache
+/Users/tumsimekondo/Desktop/projects/dotnet/monarchs-console-app/obj/Debug/netcoreapp3.1/monarchs-console-app.AssemblyInfoInputs.cache
+/Users/tumsimekondo/Desktop/projects/dotnet/monarchs-console-app/obj/Debug/netcoreapp3.1/monarchs-console-app.AssemblyInfo.cs
+/Users/tumsimekondo/Desktop/projects/dotnet/monarchs-console-app/obj/Debug/netcoreapp3.1/monarchs-console-app.dll
+/Users/tumsimekondo/Desktop/projects/dotnet/monarchs-console-app/obj/Debug/netcoreapp3.1/monarchs-console-app.pdb
+/Users/tumsimekondo/Desktop/projects/dotnet/monarchs-console-app/obj/Debug/netcoreapp3.1/monarchs-console-app.genruntimeconfig.cache
