@@ -40,52 +40,27 @@ namespace monarchs_console_app
     
     public class MonarchCollection
     {
-        public string mostAppearedName { get; set; }
-        public int total { get; set; }
-        public Monarch longestRuledMonarch { get; set; }
-        
+        private List<Monarch> monarchs;
+
         public MonarchCollection(List<Monarch> monarchs)
         {
-            this.mostAppearedName = FindMostCommonName(monarchs);
-            this.longestRuledMonarch = FindLongestRuledMonarch(monarchs);
-            this.total = CountItems(monarchs);
+            this.monarchs = monarchs;
         }
 
-        private int CountItems(List<Monarch> monarchs)
+        public int CountItems()
         {
-            return monarchs.Count;
+            return this.monarchs.Count;
         }
 
-        private string FindMostCommonName(List<Monarch> monarchs)
+        public string GetMostCommonName()
         {
-            Dictionary<string, int> mostCommonNameCollection = new Dictionary<string, int>();
-            foreach (Monarch monarch in monarchs)
-            {
-                string name = monarch.name.Split(' ')[0];
-                if (mostCommonNameCollection.TryGetValue(name, out int count))
-                {
-                    mostCommonNameCollection[name] = count + 1;
-                }
-                else
-                {
-                    mostCommonNameCollection.Add(name, 1);
-                }
-            }
-            
-            return SortAndReturnName(mostCommonNameCollection);
+            return this.monarchs.GroupBy(monarch => monarch.name.Split(' ')[0])
+                .OrderByDescending(m => m.Count())
+                .Select(m => m.Key).First();
         }
 
-        private string SortAndReturnName(Dictionary<string, int> collection)
-        {
-            var sortedCollection = (from pair in collection
-                orderby pair.Value ascending
-                select pair).Last();
-
-            return sortedCollection.Key;
-        }
-        
-        private Monarch FindLongestRuledMonarch(List<Monarch> monarchs) {
-            monarchs.Sort();
+        public Monarch GetLongestRuledMonarch() {
+            this.monarchs.Sort();
             return monarchs[monarchs.Count - 1];
         }
     }
@@ -109,10 +84,10 @@ namespace monarchs_console_app
             }
             
             MonarchCollection collection = new  MonarchCollection(monarchs);
-            Console.WriteLine($"How many monarchs are there in the list?: {collection.total}");
-            Console.WriteLine($"Which monarch ruled the longest (and for how long)?: {collection.longestRuledMonarch.name}, {(collection.longestRuledMonarch.period)} years");
-            Console.WriteLine($"Which house ruled the longest (and for how long)?: {collection.longestRuledMonarch.house}, {(collection.longestRuledMonarch.period)} years");
-            Console.WriteLine($"What was the most common first name?: {collection.mostAppearedName}");
+            Console.WriteLine($"How many monarchs are there in the list?: {collection.CountItems()}");
+            Console.WriteLine($"Which monarch ruled the longest (and for how long)?: {collection.GetLongestRuledMonarch().name}, {(collection.GetLongestRuledMonarch().period)} years");
+            Console.WriteLine($"Which house ruled the longest (and for how long)?: {collection.GetLongestRuledMonarch().house}, {(collection.GetLongestRuledMonarch().period)} years");
+            Console.WriteLine($"What was the most common first name?: {collection.GetMostCommonName()}");
         }
         
         private static async Task<int> CalculateNumberOfYears(Monarch monarch)
