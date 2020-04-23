@@ -84,10 +84,10 @@ namespace monarchs_console_app
             }
             
             MonarchCollection collection = new  MonarchCollection(monarchs);
-            Monarch monach = collection.GetLongestRuledMonarch();
+            Monarch longestMonarch = collection.GetLongestRuledMonarch();
             Console.WriteLine($"How many monarchs are there in the list?: {collection.CountItems()}");
-            Console.WriteLine($"Which monarch ruled the longest (and for how long)?: {monach.name}, {(monach.period)} years");
-            Console.WriteLine($"Which house ruled the longest (and for how long)?: {monach.house}, {(monach.period)} years");
+            Console.WriteLine($"Which monarch ruled the longest (and for how long)?: {longestMonarch.name}, {(longestMonarch.period)} years");
+            Console.WriteLine($"Which house ruled the longest (and for how long)?: {longestMonarch.house}, {(longestMonarch.period)} years");
             Console.WriteLine($"What was the most common first name?: {collection.GetMostCommonName()}");
         }
         
